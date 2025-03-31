@@ -32,4 +32,6 @@
     <asp:Button ID="readPrev" runat="server" Text="Read Prev" />
     <asp:Button ID="readNext" runat="server" Text="Read Next" />
 
+    <asp:Label ID="lblError" runat="server" ForeColor="Red" />
+
 </asp:Content>
