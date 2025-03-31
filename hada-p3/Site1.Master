@@ -10,6 +10,10 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <p>Nayara Navarro Rodríguez - 50507209Z</p>
+    <p>José Miguel Saez Castro - 51299931H</p>
+    <h1 style="color: white; background-color: steelblue;text-align: center; padding: 10px;">HADA P3 - CURSO 2024-2025</h1>
+
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
