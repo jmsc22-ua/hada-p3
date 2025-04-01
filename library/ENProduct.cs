@@ -105,12 +105,6 @@ namespace library
             Price = price;
             Category = category;
             CreationDate = creationDate;
-            Code = code;
-            Name = name;
-            Amount = amount;
-            Price = price;
-            Category = category;
-            CreationDate = creationDate;
         }
     }
 }
