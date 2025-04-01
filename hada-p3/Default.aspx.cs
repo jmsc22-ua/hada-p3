@@ -1,4 +1,5 @@
-﻿using System;
+﻿using library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -47,27 +48,18 @@ namespace hada_p3
                 lblError.Text = "La fecha no es válida. Usa el formato correcto (dd/mm/aaaa).";
                 return;
             }
+           
+            ENProduct producto = new ENProduct(code.Text, name.Text, cantidad, precio, int.Parse(category.SelectedValue), fecha);
 
-            int cat;
-            switch (category.SelectedValue)
+            if (producto.Create())
             {
-                case "Computing": 
-                    cat = 0;
-                    break;
-                case "Telephony":
-                    cat = 1;
-                    break;
-                case "Gaming":
-                    cat = 2;
-                    break;
-                case "Home appliances":
-                    cat = 3;
-                    break;
+                lblError.ForeColor = System.Drawing.Color.Green;
+                lblError.Text = "Producto creado correctamente.";
             }
-
-            lblError.ForeColor = System.Drawing.Color.Green;
-            lblError.Text = "Producto creado correctamente.";
-
+            else
+            {
+                lblError.Text = "Error al crear el producto.";
+            }
         }
 
         protected void update_Click(object sender, EventArgs e)

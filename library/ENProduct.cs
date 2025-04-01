@@ -106,5 +106,47 @@ namespace library
             Category = category;
             CreationDate = creationDate;
         }
+
+        public bool Create()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.Create(this);
+        }
+
+        public bool Update()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.Update(this);
+        }
+
+        public bool Delete()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.Delete(this);
+        }
+
+        public bool Read()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.Read(this);
+        }
+
+        public bool ReadFirst()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.ReadFirst(this);
+        }
+
+        public bool ReadNext()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.ReadNext(this);
+        }
+
+        public bool ReadPrev()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.ReadPrev(this);
+        }
     }
 }

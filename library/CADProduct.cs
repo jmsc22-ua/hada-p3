@@ -13,10 +13,15 @@ namespace library
         private string _constring;
 
         public CADProduct()
-        {
-            //meter la cadena de conexión a las bases de datos
-            //_costring = 
+        {   
+            _constring = "Data Source=SERVIDOR;Initial Catalog=NombreBD;Integrated Security=True;"
         }
+
+        public SqlConnection GetConnection()
+        {
+            return new SqlConnection(_constring);
+        }
+
         public bool Create(ENProduct en)
         {
             bool hecho = false;
