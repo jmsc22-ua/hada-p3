@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Products management" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="Products management" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="hada_p3.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
@@ -17,16 +17,18 @@
     Category
     <asp:DropDownList ID="category" runat="server">
         <asp:ListItem>Computing</asp:ListItem>
-        <asp:ListItem>Electronics</asp:ListItem>
+        <asp:ListItem>Telephony</asp:ListItem>
+        <asp:ListItem>Gaming</asp:ListItem>
+        <asp:ListItem>Home appliances</asp:ListItem>
     </asp:DropDownList><br />
     <br />
     Price <asp:TextBox ID="price" runat="server" /><br />
     <br />
     Creation Date <asp:TextBox ID="creationDate" runat="server" /><br /><br />
     <br />
-    <asp:Button ID="create" runat="server" Text="Create" />
-    <asp:Button ID="update" runat="server" Text="Update" />
-    <asp:Button ID="delete" runat="server" Text="Delete" />
+    <asp:Button ID="create" runat="server" Text="Create" OnClick="create_Click" />
+    <asp:Button ID="update" runat="server" Text="Update" OnClick="update_Click" />
+    <asp:Button ID="delete" runat="server" Text="Delete" OnClick=""/>
     <asp:Button ID="read" runat="server" Text="Read" />
     <asp:Button ID="readFirst" runat="server" Text="Read First" />
     <asp:Button ID="readPrev" runat="server" Text="Read Prev" />

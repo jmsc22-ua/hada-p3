@@ -30,11 +30,47 @@ namespace hada_p3
                 return;
             }
 
+            if (!int.TryParse(amount.Text, out int cantidad) || cantidad < 0 || cantidad > 9999)
+            {
+                lblError.Text = "La cantidad debe ser un número entero positivo.";
+                return;
+            }
 
+            if (!float.TryParse(amount.Text, out float precio) || precio < 0 || precio > 9999.99)
+            {
+                lblError.Text = "La cantidad debe ser un número entero positivo.";
+                return;
+            }
+
+            if (!DateTime.TryParse(creationDate.Text, out DateTime fecha))
+            {
+                lblError.Text = "La fecha no es válida. Usa el formato correcto (dd/mm/aaaa).";
+                return;
+            }
+
+            int cat;
+            switch (category.SelectedValue)
+            {
+                case "Computing": 
+                    cat = 0;
+                    break;
+                case "Telephony":
+                    cat = 1;
+                    break;
+                case "Gaming":
+                    cat = 2;
+                    break;
+                case "Home appliances":
+                    cat = 3;
+                    break;
+            }
+
+            lblError.ForeColor = System.Drawing.Color.Green;
+            lblError.Text = "Producto creado correctamente.";
 
         }
 
-        protected void btnUpdate_Click(object sender, EventArgs e)
+        protected void update_Click(object sender, EventArgs e)
         {
             
         }
