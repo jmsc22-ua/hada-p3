@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace library
 {
@@ -13,8 +14,8 @@ namespace library
         private string _constring;
 
         public CADProduct()
-        {   
-            _constring = "Data Source=SERVIDOR;Initial Catalog=NombreBD;Integrated Security=True;"
+        {
+            _constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
         }
 
         public SqlConnection GetConnection()
@@ -30,8 +31,8 @@ namespace library
                 using(SqlConnection c = new SqlConnection(_constring))
                 {
                     c.Open();
-                    string sql = "INSERT INTO Products (name, code, amount, price, category, creationDate" +
-                        "VALUES (@name, @code, @amount, @price, @category, @creationDate)";
+                    string sql = "INSERT INTO Products (name, code, amount, price, category, creationDate)" +
+                        " VALUES (@name, @code, @amount, @price, @category, @creationDate)";
                     using(SqlCommand com = new SqlCommand(sql, c))
                     {
                         com.Parameters.AddWithValue("@name", en.Name);
@@ -54,7 +55,7 @@ namespace library
             return hecho;
             
         }
-        public bool Update(ENProduct en) 
+        public bool Update(ENProduct en)
         {
             bool hecho = false;
             try
@@ -62,8 +63,14 @@ namespace library
                 using (SqlConnection c = new SqlConnection(_constring))
                 {
                     c.Open();
-                    string sql = "INSERT INTO Products (name, code, amount, price, category, creationDate" +
-                        "VALUES (@name, @code, @amount, @price, @category, @creationDate)";
+                    string sql = @"UPDATE Products 
+                           SET name = @name, 
+                               amount = @amount, 
+                               price = @price, 
+                               category = @category, 
+                               creationDate = @creationDate
+                           WHERE code = @code"; 
+
                     using (SqlCommand com = new SqlCommand(sql, c))
                     {
                         com.Parameters.AddWithValue("@name", en.Name);
@@ -73,19 +80,20 @@ namespace library
                         com.Parameters.AddWithValue("@category", en.Category);
                         com.Parameters.AddWithValue("@creationDate", en.CreationDate);
 
-                        com.ExecuteNonQuery();
+                        int rowsAffected = com.ExecuteNonQuery();
+                        hecho = rowsAffected > 0;
                     }
-                    hecho = true;
                 }
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+                Console.WriteLine("Product update has failed. Error: {0}", ex.Message);
                 hecho = false;
             }
 
             return hecho;
         }
+
         public bool Delete(ENProduct en)
         {
             bool borrado = false;
