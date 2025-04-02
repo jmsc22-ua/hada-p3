@@ -20,7 +20,7 @@ namespace library
             get { return _code; }
             set
             {
-                if (_code == null)
+                if (value == null)
                 {
                     throw new ArgumentNullException("code");
                 }
@@ -32,7 +32,7 @@ namespace library
             get { return _name; }
             set
             {
-                if (_name == null)
+                if (value == null)
                 {
                     throw new ArgumentNullException("name");
                 }
@@ -44,7 +44,7 @@ namespace library
             get { return _amount; }
             set
             {
-                if (_amount < 0)
+                if (value < 0)
                 {
                     throw new ArgumentNullException("amount");
                 }
@@ -56,7 +56,7 @@ namespace library
             get { return _price; }
             set
             {
-                if (_price < 0.0)
+                if (value < 0.0)
                 {
                     throw new ArgumentNullException("price");
                 }
@@ -68,7 +68,7 @@ namespace library
             get { return _category; }
             set
             {
-                if (_category < 0)
+                if (value < 0)
                 {
                     throw new ArgumentNullException("category");
                 }
@@ -89,7 +89,6 @@ namespace library
         }
         public ENProduct()
         {
-            //ni idea de si estos están bien
             Code = " ";
             Name = " ";
             Amount = 0;
