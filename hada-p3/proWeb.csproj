@@ -84,6 +84,7 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
   </ItemGroup>

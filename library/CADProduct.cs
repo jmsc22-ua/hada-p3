@@ -15,46 +15,48 @@ namespace library
 
         public CADProduct()
         {
-            _constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
-        }
-
-        public SqlConnection GetConnection()
-        {
-            return new SqlConnection(_constring);
+            _constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         public bool Create(ENProduct en)
         {
             bool hecho = false;
+            SqlConnection conn = null;
+            SqlCommand com = null;
+
             try
             {
-                using(SqlConnection c = new SqlConnection(_constring))
-                {
-                    c.Open();
-                    string sql = "INSERT INTO Products (name, code, amount, price, category, creationDate)" +
-                        " VALUES (@name, @code, @amount, @price, @category, @creationDate)";
-                    using(SqlCommand com = new SqlCommand(sql, c))
-                    {
-                        com.Parameters.AddWithValue("@name", en.Name);
-                        com.Parameters.AddWithValue("@code", en.Code);
-                        com.Parameters.AddWithValue("@amount", en.Amount);
-                        com.Parameters.AddWithValue("@price", en.Price);
-                        com.Parameters.AddWithValue("@category", en.Category);
-                        com.Parameters.AddWithValue("@creationDate", en.CreationDate);
+                conn = new SqlConnection(_constring);
+                conn.Open();
 
-                        com.ExecuteNonQuery();
-                    }
-                    hecho = true;
-                }
+                string sql = "INSERT INTO Products (name, code, amount, price, category, creationDate)" +
+                             " VALUES (@name, @code, @amount, @price, @category, @creationDate)";
+
+                com = new SqlCommand(sql, conn);
+                com.Parameters.AddWithValue("@name", en.Name);
+                com.Parameters.AddWithValue("@code", en.Code);
+                com.Parameters.AddWithValue("@amount", en.Amount);
+                com.Parameters.AddWithValue("@price", en.Price);
+                com.Parameters.AddWithValue("@category", en.Category+1);
+                com.Parameters.AddWithValue("@creationDate", en.CreationDate);
+
+                com.ExecuteNonQuery();
+                hecho = true;
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Product operation has failed. Error: {0}",ex.Message);
-                hecho = false;
+                Console.WriteLine("Error creando producto: " + ex.Message);
             }
+            finally
+            {
+                if (com != null) com.Dispose();
+                if (conn != null && conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+            }
+
             return hecho;
-            
         }
+
         public bool Update(ENProduct en)
         {
             bool hecho = false;
@@ -127,7 +129,7 @@ namespace library
                 using(SqlConnection c = new SqlConnection(_constring))
                 {
                     c.Open();
-                    string sql = "SELECT name, code, amount, price, category, creationDate" +
+                    string sql = "SELECT name, code, amount, price, category, creationDate " +
                         "FROM Products WHERE code = @code";
                     using (SqlCommand com = new SqlCommand(sql, c))
                     {
@@ -163,15 +165,15 @@ namespace library
                 using (SqlConnection c = new SqlConnection(_constring))
                 {
                     c.Open();
-                    string sql = "SELECT name, code, amount, price, category, creationDate" +
+                    string sql = "SELECT TOP 1 name, code, amount, price, category, creationDate " +
                         "FROM Products ORDER BY code ASC";
                     using (SqlCommand com = new SqlCommand(sql, c))
                     {
-                        com.Parameters.Add("@code", System.Data.SqlDbType.NVarChar, 16).Value = en.Code;
                         using (SqlDataReader r = com.ExecuteReader())
                         {
                             if (r.Read())
                             {
+                                en.Code = r["code"].ToString();
                                 en.Name = r["name"].ToString();
                                 en.Amount = Convert.ToInt32(r["amount"]);
                                 en.Price = (float)Convert.ToDecimal(r["price"]);
