@@ -11,37 +11,38 @@
     <div class="form-group">
         <label for="txtCode">Code:</label>
         <asp:TextBox ID="code" runat="server" CssClass="form-control"/>
+         <asp:Label ID="errorCode" runat="server" ForeColor="Red" CssClass="error"/>
     </div>
      
     <div class="form-group">
         <label for="txtName">Name:</label>
         <asp:TextBox ID="name" runat="server" CssClass="form-control"/>
+        <asp:Label ID="errorName" runat="server" ForeColor="Red" CssClass="error" />
     </div>
      
     <div class="form-group">
         <label for="txtC">Amount:</label>
         <asp:TextBox ID="amount" runat="server" CssClass="form-control"/>
+        <asp:Label ID="errorAmount" runat="server" ForeColor="Red" CssClass="error" />
     </div>
     
     <div class="form-group">
         <label for="txtCode">Category:</label>
         <asp:DropDownList ID="category" runat="server" CssClass="form-control">
-            <asp:ListItem Text="Seleccione una opción"/>
-            <asp:ListItem Text="Computing" Value="0" />
-            <asp:ListItem Text="Telephony" Value="1" />
-            <asp:ListItem Text="Gaming" Value="2" />
-            <asp:ListItem Text="Home appliances" Value="3" />
         </asp:DropDownList>
+        <asp:Label ID="errorCategory" runat="server" ForeColor="Red" CssClass="error"/>
     </div>
     
     <div class="form-group">
         <label for="txtCode">Price:</label>
         <asp:TextBox ID="price" runat="server" CssClass="form-control"/>
+        <asp:Label ID="errorPrice" runat="server" ForeColor="Red" CssClass="error"/>
     </div>
      
     <div class="form-group">
         <label for="txtCode"> Creation Date:</label>
         <asp:TextBox ID="creationDate" runat="server" CssClass="form-control"/>
+        <asp:Label ID="errorDate" runat="server" ForeColor="Red" CssClass="error"/>
     </div>
 
     <div class="button-group">
@@ -53,16 +54,6 @@
         <asp:Button ID="readPrev" runat="server" Text="Read Prev" OnClick="readPrev_Click" CssClass="btn"/>
         <asp:Button ID="readNext" runat="server" Text="Read Next" OnClick="readNext_Click" CssClass="btn"/>
     </div>
-
-    <asp:Panel ID="panelProducto" runat="server" CssClass="producto-panel" Visible="false">
-        <asp:Label ID="lblCode" runat="server" CssClass="producto-label" /><br />
-        <asp:Label ID="lblName" runat="server" CssClass="producto-label" /><br />
-        <asp:Label ID="lblAmount" runat="server" CssClass="producto-label" /><br />
-        <asp:Label ID="lblPrice" runat="server" CssClass="producto-label" /><br />
-        <asp:Label ID="lblCategory" runat="server" CssClass="producto-label" /><br />
-        <asp:Label ID="lblDate" runat="server" CssClass="producto-label" /><br />
-    </asp:Panel>
-
-    <asp:Label ID="lblError" runat="server" ForeColor="Red" />
+    <asp:Label ID="lblError" runat="server" ForeColor="Red"/>
   
 </asp:Content>

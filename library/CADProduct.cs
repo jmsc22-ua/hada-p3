@@ -37,7 +37,7 @@ namespace library
                 com.Parameters.AddWithValue("@code", en.Code);
                 com.Parameters.AddWithValue("@amount", en.Amount);
                 com.Parameters.AddWithValue("@price", en.Price);
-                com.Parameters.AddWithValue("@category", en.Category+1);
+                com.Parameters.AddWithValue("@category", en.Category);
                 com.Parameters.AddWithValue("@creationDate", en.CreationDate);
 
                 com.ExecuteNonQuery();
@@ -45,6 +45,10 @@ namespace library
             }
             catch (SqlException ex)
             {
+                if (ex.Number == 2627) // El código de error de violación de clave única 
+                {
+                    throw new Exception("El código de producto ya existe. Por favor, ingrese uno diferente.");
+                }
                 Console.WriteLine("Error creando producto: " + ex.Message);
             }
             finally
@@ -201,7 +205,7 @@ namespace library
                 using (SqlConnection c = new SqlConnection(_constring))
                 {
                     c.Open();
-                    string sql = "SELECT TOP 1 id, name, code, amount, price, category, creationDate" +
+                    string sql = "SELECT TOP 1 id, name, code, amount, price, category, creationDate " +
                         "FROM Products WHERE code > @code ORDER BY code ASC";
                     using (SqlCommand com = new SqlCommand(sql, c))
                     {
@@ -210,6 +214,7 @@ namespace library
                         {
                             if (r.Read())
                             {
+                                en.Code = r["code"].ToString();
                                 en.Name = r["name"].ToString();
                                 en.Amount = Convert.ToInt32(r["amount"]);
                                 en.Price = (float)Convert.ToDecimal(r["price"]);
@@ -237,7 +242,7 @@ namespace library
                 using (SqlConnection c = new SqlConnection(_constring))
                 {
                     c.Open();
-                    string sql = "SELECT TOP 1 id, name, code, amount, price, category, creationDate" +
+                    string sql = "SELECT TOP 1 id, name, code, amount, price, category, creationDate " +
                         "FROM Products WHERE code < @code ORDER BY code DESC";
                     using (SqlCommand com = new SqlCommand(sql, c))
                     {
@@ -246,6 +251,7 @@ namespace library
                         {
                             if (r.Read())
                             {
+                                en.Code = r["code"].ToString();
                                 en.Name = r["name"].ToString();
                                 en.Amount = Convert.ToInt32(r["amount"]);
                                 en.Price = (float)Convert.ToDecimal(r["price"]);
