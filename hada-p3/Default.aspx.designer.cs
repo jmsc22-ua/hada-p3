@@ -24,6 +24,15 @@ namespace hada_p3
         protected global::System.Web.UI.WebControls.TextBox code;
 
         /// <summary>
+        /// Control errorCode.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorCode;
+
+        /// <summary>
         /// Control name.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace hada_p3
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox name;
+
+        /// <summary>
+        /// Control errorName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorName;
 
         /// <summary>
         /// Control amount.
@@ -42,6 +60,15 @@ namespace hada_p3
         protected global::System.Web.UI.WebControls.TextBox amount;
 
         /// <summary>
+        /// Control errorAmount.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorAmount;
+
+        /// <summary>
         /// Control category.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace hada_p3
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList category;
+
+        /// <summary>
+        /// Control errorCategory.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorCategory;
 
         /// <summary>
         /// Control price.
@@ -60,6 +96,15 @@ namespace hada_p3
         protected global::System.Web.UI.WebControls.TextBox price;
 
         /// <summary>
+        /// Control errorPrice.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorPrice;
+
+        /// <summary>
         /// Control creationDate.
         /// </summary>
         /// <remarks>
@@ -67,6 +112,15 @@ namespace hada_p3
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox creationDate;
+
+        /// <summary>
+        /// Control errorDate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorDate;
 
         /// <summary>
         /// Control create.
@@ -130,69 +184,6 @@ namespace hada_p3
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button readNext;
-
-        /// <summary>
-        /// Control panelProducto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelProducto;
-
-        /// <summary>
-        /// Control lblCode.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCode;
-
-        /// <summary>
-        /// Control lblName.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
-
-        /// <summary>
-        /// Control lblAmount.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAmount;
-
-        /// <summary>
-        /// Control lblPrice.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrice;
-
-        /// <summary>
-        /// Control lblCategory.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCategory;
-
-        /// <summary>
-        /// Control lblDate.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDate;
 
         /// <summary>
         /// Control lblError.

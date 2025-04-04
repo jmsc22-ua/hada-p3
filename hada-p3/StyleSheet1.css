@@ -1,5 +1,16 @@
 ﻿body {
     font-family: 'Century Gothic', sans-serif;
+    background-color: #fdf6e3;
+    margin: 40px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -50,25 +61,14 @@
     flex-wrap: wrap;
 }
 
-.producto-panel {
-    background-color: #e6e1dd; 
-    border: 2px solid #02315E;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 30px auto; 
-    width: 350px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.error {
+    color: #d9534f;
+    font-size: 0.9em;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    text-align: left; 
+    display: block;
 }
 
 
-.producto-label {
-    color: #2F70AF;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.mensaje-error {
-    font-size: 16px;
-    margin-top: 10px;
-}
 
